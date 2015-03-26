@@ -1,6 +1,6 @@
 Package: dratTravis
 Title: Uploading Packages from Travis to Drat
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: person("Colin", "Gillespie",  email="csgillespie@gmail.com", role = c("aut", "cre"))
 Description: This package does nothing of use. It's only an example.
 Depends: R (>= 3.1.3)
