@@ -1,0 +1,23 @@
+language: r
+sudo: true
+
+## Currently using bleeding edge features
+r_github_packages:
+  - eddelbuettel/drat
+
+notifications:
+  email:
+    on_success: change
+    on_failure: change
+
+## Don't upload to drat if:
+## it's a pull request or we're on the master branch
+after_success:
+  - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash deploy.sh
+
+## Encrypted token
+env:
+  global:
+    secure: oq6+aDauVPmKZMhnWv5snRy7WoxKpBsJrDpduxeKfp0mgCoY7Oj79vzQ8i7eK3lRv6qY2V8OUTjaU8cUWx0B+4QwjJEZHu73sqmREkyj3q7VtMMnSB5iTWKoGdizsf6T1M7AK3RI0oNtc6IiHnMMMGZuxH4q3hN5eu3r0Nc0aso=
+
+
