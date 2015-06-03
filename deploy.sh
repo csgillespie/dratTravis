@@ -34,10 +34,3 @@ addToDrat
 #fi
 ##but will need to edit .travis.yml since $TRAVIS_BRANCH will now equal $TRAVIS_TAG
 
-
-## Add to the drat repo
-#Rscript -e "drat::insertPackage(list.files(path='../nclRintroduction', full.names = TRUE, pattern='*.tar.gz'),
-#  repodir = '.',
-#  commit='Travis update: build $TRAVIS_BUILD_NUMBER')"
-#TRAVIS_BUILD_NUMBER
-
