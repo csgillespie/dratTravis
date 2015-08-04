@@ -18,4 +18,4 @@ after_success:
 ## Encrypted token
 env:
   global:
-    secure: cF2GW3S1oo26KDIrpzRrSNdiWQWMTRnPLoNZk4CnxE2kTKIAZLJP7MFwjDjWRWIoWzl3xqXmLMfolDhqbyY2Hw/jhhvsB/q7Jr61Jy3Et6WNetHj/6bz5MSGXPO5TCR9AyBRM5/DeQTNmYI2zMHZgCVVi45tS2X0ay1/SPIJy3Y=
+    secure: cF2GW3S1oo26KDIrpzRrSNdiWQWMTRnPLoNZk4
