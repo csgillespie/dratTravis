@@ -1,9 +1,5 @@
 language: r
-sudo: true
-
-## Currently using bleeding edge features
-r_github_packages:
-  - eddelbuettel/drat
+packages: cache
 
 notifications:
   email:
