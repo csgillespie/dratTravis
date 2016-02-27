@@ -1,13 +1,15 @@
 language: r
 packages: cache
 
+r_packages: drat
+
 notifications:
   email:
     on_success: change
     on_failure: change
 
 ## Don't upload to drat if:
-## it's a pull request or we're on the master branch
+## it's a pull request or we're not on the master branch
 after_success:
   - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash deploy.sh
 
