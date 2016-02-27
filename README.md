@@ -3,10 +3,10 @@
 
  * [Drat](https://github.com/eddelbuettel/drat) is a useful little package, for, *inter-alia*, using
 github *gh-pages* as an R repository
- * [Travis](https://github.com/craigcitro/r-travis) is a hosted continuous integration service. 
- It is integrated with GitHub and offers first class support for a number of languages, but importantly, R.
- 
-This package illustrates how to automatically update a `drat` github repository, for a *successful* travis build.
+ * [Travis](https://github.com/craigcitro/r-travis) is a hosted continuous integration service.
+ It is integrated with gitHub and offers first class support for a number of languages, but importantly, R.
+
+This package illustrates how to automatically update a `drat` github repository, on a *successful* travis build.
 
 ## Getting Started
 
@@ -33,16 +33,20 @@ give you a chance to copy it down.
   ```
   travis encrypt GH_TOKEN=$MY_ACCESS_TOKEN --add env.global
   ```
-  where `$MY_ACCESS_TOKEN` is your access token. The `--add env.global` automatically adds the token to your 
-`.travis.yml` file
+  where `$MY_ACCESS_TOKEN` is your access token. The `--add env.global` automatically adds the token to your `.travis.yml` file
 1. Copy across `deploy.sh` and edit appropriately.
 1. Add the line
   ```
   after_success:
     - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash deploy.sh
   ```
-  
-  to your `.travis.yml` file. This means the drat repository is only updated:
+
+    to your `.travis.yml` file. This means your `drat` repository is only updated:
     - for successful builds
     - only on the master branch
     - not for pull requests
+
+## TODO
+
+1. The bash script is a bit hacky.
+1. It should be possible to only update if a version is tagged. Travis provides a variable `$TRAVIS_TAG`, that is empty if the commit isn't a tag. **But** when tagging, `$TRAVIS_BRANCH` also changes to the tag name.
