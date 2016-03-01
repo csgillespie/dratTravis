@@ -1,5 +1,4 @@
 #!/bin/bash
-
 set -o errexit -o nounset
 PKG_REPO=$PWD
 cd ..
