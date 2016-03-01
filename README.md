@@ -38,13 +38,14 @@ give you a chance to copy it down.
 1. Add the line
   ```
   after_success:
-    - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash deploy.sh
+    - test $TRAVIS_REPO_SLUG == "csgillespie/dratTravis" && test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash deploy.sh
   ```
 
     to your `.travis.yml` file. This means your `drat` repository is only updated:
     - for successful builds
-    - only on the master branch
+    - if the commit is on the master you own, i.e. USERNAME/dratTRAVIS
     - not for pull requests
+    - only on the master branch
 
 ## TODO
 

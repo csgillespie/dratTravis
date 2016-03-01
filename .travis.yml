@@ -1,17 +1,17 @@
 language: r
-packages: cache
-
-#r_packages: drat
+cache: packages
 
 notifications:
   email:
     on_success: change
     on_failure: change
 
-## Don't upload to drat if:
-## it's a pull request or we're not on the master branch
+## Don't (attempt to) upload to drat if:
+## 1. You're not me (@csgillespie) - change if you fork this repo
+## 2. It's a pull request
+## 3. We're not on the master branch
 after_success:
-  - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash deploy.sh
+  - test $TRAVIS_REPO_SLUG == "csgillespie/dratTravis" && test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash deploy.sh
 
 ## Encrypted token
 env:
